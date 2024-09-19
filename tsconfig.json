@@ -1,19 +1,18 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
-		"useDefineForClassFields": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"strict": true,
-		"jsx": "preserve",
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"allowSyntheticDefaultImports": true,
-		"resolveJsonModule": true,
-		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
+		"target": "esnext", // Поддержка современных возможностей JS
+		"module": "esnext", // Использование модулей ES
+		"moduleResolution": "node", // Разрешение модулей через Node.js
+		"strict": true, // Включаем строгую проверку типов
+		"jsx": "preserve", // Для JSX, если используете
+		"esModuleInterop": true, // Поддержка импорта модулей CommonJS
+		"skipLibCheck": true, // Пропуск проверки типов в библиотеках
+		"forceConsistentCasingInFileNames": true, // Обеспечение согласованности использования регистров
+		"types": ["vite/client"], // Обеспечение корректности работы с Vite
+		"lib": ["dom", "esnext"], // Добавление поддержки DOM и современных возможностей ES
+		"baseUrl": ".", // Базовый путь для относительных импортов
 		"paths": {
-			"src/*": ["src/*"]
+			"src/*": ["src/*"] // Настройка алиасов для импорта
 		}
 	},
 	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
