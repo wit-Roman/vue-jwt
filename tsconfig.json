@@ -11,9 +11,9 @@
 		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".", // Корень проекта
+		"baseUrl": ".",
 		"paths": {
-			"src/*": ["src/*"] // Алиас для папки src
+			"src/*": ["src/*"]
 		}
 	},
 	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
