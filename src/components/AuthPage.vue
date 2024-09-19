@@ -1,8 +1,10 @@
 <template>
-	<div>
+	<a-alert v-if="isAuthenticated" message="Already Autorized!" type="success" />
+
+	<div v-else>
 		<h2>Авторизация</h2>
 
-		<a-alert if="error">{{ error }}</a-alert>
+		<a-alert v-if="error" v-bind:message="error" type="error" />
 
 		<a-form
 			:model="formState"
@@ -39,7 +41,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
-
+import { storeToRefs } from "pinia";
 import { useAuthStore } from "src/stores/auth";
 
 const error = ref("");
@@ -50,6 +52,8 @@ const formState = reactive({
 
 const authStore = useAuthStore();
 const router = useRouter();
+
+const { isAuthenticated } = storeToRefs(authStore);
 
 const handleLogin = () => {
 	authStore
@@ -63,8 +67,6 @@ const handleLogin = () => {
 };
 
 const setError = (errs: { errorFields: [] }) => {
-	if (errs.errorFields.length) {
-		error.value = "Bad value";
-	}
+	if (errs.errorFields.length) error.value = "Bad value";
 };
 </script>
