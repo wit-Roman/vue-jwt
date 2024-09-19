@@ -13,16 +13,15 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, computed } from "vue";
-import { useAuthStore } from "@/stores/auth";
+import { onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "src/stores/auth";
 
 const authStore = useAuthStore();
 const router = useRouter();
 
-const isAuthenticated = computed(() => {
-	return authStore.isAuthenticated;
-});
+const { isAuthenticated } = storeToRefs(authStore);
 
 onMounted(() => {
 	authStore.validate().catch(() => router.push("/"));

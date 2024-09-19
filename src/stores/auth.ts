@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { api } from "@/api/login";
+import { api } from "src/api/login";
 
 interface AuthState {
 	token: string | null;
@@ -11,6 +11,10 @@ export const useAuthStore = defineStore("auth", {
 		token: localStorage.getItem("token"),
 		status: "",
 	}),
+	getters: {
+		isAuthenticated: (state) => !!state.token,
+		authStatus: (state) => state.status,
+	},
 	actions: {
 		async login(login: string, password: string) {
 			this.status = "loading";
@@ -60,9 +64,5 @@ export const useAuthStore = defineStore("auth", {
 			localStorage.removeItem("token");
 			api.clearToken();
 		},
-	},
-	getters: {
-		isAuthenticated: (state) => !!state.token,
-		authStatus: (state) => state.status,
 	},
 });

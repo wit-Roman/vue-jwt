@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useAuthStore } from "@/stores/auth";
-import Login from "@/components/Login.vue";
-import HelloWord from "@/components/HelloWord.vue";
+import { useAuthStore } from "src/stores/auth";
+import AuthPage from "src/components/AuthPage.vue";
+import HelloWord from "src/components/HelloWord.vue";
 
 const routes = [
 	{
 		path: "/login",
-		component: Login,
+		component: AuthPage,
 	},
 	{
 		path: "/dashboard",
