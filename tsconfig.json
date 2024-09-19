@@ -1,12 +1,12 @@
 {
 	"files": [],
-	"references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["src/*"]
-		}
+			"@/*": ["./src/*"]
+		},
+		"composite": true,
+		"types": ["node"]
 	},
-	"exclude": ["node_modules", "dist"],
-	"include": ["src/**/*.vue"]
+	"references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }
