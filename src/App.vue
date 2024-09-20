@@ -3,6 +3,7 @@
 		<header>
 			<nav>
 				<router-link to="/">Home</router-link>
+				<router-link v-if="isAuthenticated" to="/notification">Notification</router-link>
 				<router-link v-if="isAuthenticated" to="/dashboard">Dashboard</router-link>
 				<router-link v-else to="/login">Login</router-link>
 				<button v-if="isAuthenticated" @click="handleLogout">Logout</button>

@@ -3,6 +3,7 @@ import { useAuthStore } from "src/stores/auth";
 import AuthPage from "src/components/AuthPage.vue";
 import HelloWord from "src/components/HelloWord.vue";
 import HomePage from "src/components/HomePage.vue";
+import NotificationPage from "src/components/NotificationPage.vue";
 
 const routes = [
 	{
@@ -16,6 +17,11 @@ const routes = [
 	{
 		path: "/dashboard",
 		component: HelloWord,
+		meta: { requiresAuth: true },
+	},
+	{
+		path: "/notification",
+		component: NotificationPage,
 		meta: { requiresAuth: true },
 	},
 ];
