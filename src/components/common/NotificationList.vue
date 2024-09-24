@@ -1,6 +1,6 @@
 <template>
 	<div class="notification-list">
-		<TransitionGroup tag="ul" name="slide-fade">
+		<TransitionGroup tag="div" name="slide-fade">
 			<div v-for="notification in notifications" :class="['notification', notification.type]">
 				<p>{{ notification.message }}</p>
 				<button @click="closeNotification(notification.id)">Close</button>
