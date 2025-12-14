@@ -17,8 +17,8 @@ function clearToken() {
 
 /** @desc Репозиторий для управления запросами авторизации */
 const auth = {
-	login: (login: string, password: string) => {
-		return instance.post<{ refreshToken: string; accessToken: string }>("/User/Login", { login, password });
+	login: (email: string, password: string) => {
+		return instance.post<{ refreshToken: string; accessToken: string }>("AM/Access/Login", { email, password });
 	},
 
 	validateToken: (accessToken: string) => {
